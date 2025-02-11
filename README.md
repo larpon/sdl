@@ -10,7 +10,7 @@ So, among many other things, you can:
 - Handle input events from keyboards, touches, mice, gamepads and joysticks
 - Play audio, sound effects and music
 
-# Install
+## Install
 
 To use `vlang/sdl` you need SDL3 libraries installed and the corresponding
 `vlang/sdl` *branch* checked out that *matches the SDL3 version installed* on the target system.
@@ -52,15 +52,32 @@ Then follow the steps in the [Windows](#windows) section below.
 
 You can see what `sdl` releases are available in the [GitHub repository](https://github.com/vlang/sdl/branches) via branches.
 
-### Version notes
+## Notes
+
+### Versions
 
 SDL3 `v3.2.0` is currently the lowest version of SDL3 supported.
 SDL3 is backwards compatible - so anything written against `v3.2.0` can be compiled and run
 against *newer* versions of the SDL3 library.
 
-Also note that SDL3 **is not** compatible with SDL `v1.x` or `2.x`.
+Also note that SDL3 **is not** compatible with SDL `v1.x` or `2.x` directly.
 
-## Notes on garbage collection and memory issues
+You can run SDL2 code using SDL3 libraries through the `sdl2_compat` support layer.
+You can read more about this compatibility in regards to V in the
+[2.x branches README.md](https://github.com/vlang/sdl/blob/2.30.0/README.md#version-notes).
+
+### Using SDL3 `SDL_App*` callbacks (and running *some* examples)
+
+To use SDL3's *main-loop control inversion* / callback setup
+You will need to `@[export]` 4 special functions and compile
+the code with `-d no_main -d sdl_callbacks`.
+
+As an example, the examples in `examples/ports/*` all require the build flags
+`-d no_main -d sdl_callbacks` to function as intended.
+
+Read more about the reasons, main-less and callbacks in [`examples/ports/README.md`](examples/ports/README.md).
+
+### Notes on garbage collection and memory issues
 
 Currently, with some setups, SDL3 is known to trigger crashes when used in conjunction
 with V's default garbage collector. Because of this you have to explicitly **opt-in**
@@ -104,6 +121,7 @@ brew install sdl3
 ```
 
 ### Windows
+
 It is necessary to install the SDL3 development libraries for Windows.
 To do this, change to the root directory of the sdl module, like
 `cd %HOMEPATH%\.vmodules\sdl`
@@ -118,7 +136,8 @@ cd ..
 v run sdl\examples\basic_window\main.v
 ```
 
-## Contributions
+### All, from source
 
-- larpon
-- spytheman
+SDL3 can be built from source on all supported platforms
+(some easier that others). See [SDL3's documentation for more info
+on building and installing from source](https://github.com/libsdl-org/SDL/blob/main/docs/README-cmake.md)
