@@ -7,7 +7,9 @@ module c
 //
 // NOTE: Read more about the setup and reasons
 // for this in `examples/ports/README.md`.
-
+$if windows {
+	#define UNICODE 1 // Fix: `fatal error C1017: invalid integer constant expression`
+}
 #define SDL_MAIN_USE_CALLBACKS
 #include <SDL3/SDL.h>
 

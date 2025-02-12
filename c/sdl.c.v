@@ -15,7 +15,6 @@ $if !windows {
 		}
 	}
 } $else {
-	#define UNICODE 1 // Fix: `fatal error C1017: invalid integer constant expression`
 	$if tinyc {
 		#flag -L @VMODROOT/thirdparty
 	}
