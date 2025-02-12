@@ -68,14 +68,19 @@ You can read more about this compatibility in regards to V in the
 
 ### Using SDL3 `SDL_App*` callbacks (and running *some* examples)
 
-To use SDL3's *main-loop control inversion* / callback setup
-You will need to `@[export]` 4 special functions and compile
-the code with `-d no_main -d sdl_callbacks`.
+To use SDL3's *main-loop control inversion* / callback setup via
+`SDL_MAIN_USE_CALLBACKS`. You will need to `@[export]` 4 specially named
+functions and compile the code with `-d sdl_callbacks`.
 
-As an example, the examples in `examples/ports/*` all require the build flags
-`-d no_main -d sdl_callbacks` to function as intended.
+The examples in `examples/ports/*` all require the build flags
+`-d sdl_callbacks` to function as intended without a main function.
 
-Read more about the reasons, main-less and callbacks in [`examples/ports/README.md`](examples/ports/README.md).
+The examples *outside* the `ports` folder can be run normally.
+
+Whether or not you want to use the "no main" approach for your own apps
+is up to you. V supports both ways for building SDL3 applications.
+
+Read more about the no main, callbacks and reasons in `examples/ports/README.md`(examples/ports/README.md).
 
 ### Notes on garbage collection and memory issues
 

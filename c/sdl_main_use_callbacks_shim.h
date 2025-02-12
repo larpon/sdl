@@ -1,6 +1,6 @@
 #if defined(SDL_MAIN_USE_CALLBACKS)
 
-// This is a C shim to make it possible to use SDL3's version
+// This is a C shim to make it possible to use SDL3's implementation
 // of the main-loop control inversion that more and more
 // platforms promote and use
 // (callbacks for program init,loop,event/block,quit).

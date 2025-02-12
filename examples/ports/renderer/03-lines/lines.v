@@ -1,14 +1,14 @@
 // Copyright(C) 2025 Lars Pontoppidan. All rights reserved.
 // Use of this source code is governed by an MIT license
 // that can be found in the LICENSE file.
-module main
+module no_main
 
+// NOTE: compile this example with `-d sdl_callbacks`.
+// See also: `examples/ports/v-sdl-no-main` for a simple example demonstrating how
+// the examples can run via callbacks instead of a `fn main() {}`.
 import sdl
 
-// NOTE: compile this example with `-d no_main -d sdl_callbacks`.
-// We do not define `fn main() {}` in any of the ported examples since
-// they use the SDL3 `SDL_App*` callback scheme implemented as a shim in C.
-// Read more about the setup and reasons for this in `examples/ports/README.md`.
+#postinclude "@VMODROOT/c/sdl_main_use_callbacks_shim.h"
 
 // Ported from lines.c https://examples.libsdl.org/SDL3/renderer/03-lines/
 

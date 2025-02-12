@@ -13,6 +13,3 @@ module c
 
 @[use_once]
 #include <SDL3/SDL_main.h>
-
-@[use_once]
-#include "@VMODROOT/c/sdl_app_main_callbacks_shim.h"

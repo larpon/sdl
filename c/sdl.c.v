@@ -34,6 +34,6 @@ $if x64 {
 // See the files:
 // ./implement_d_sdl_callbacks.c.v
 // ./implement_notd_sdl_callbacks.c.v
-// ./sdl_app_main_callbacks_shim.h
+// ./sdl_main_use_callbacks_shim.h
 // ./../examples/ports/README.md
 // ... for V's support of SDL3's *main-loop control inversion*.
