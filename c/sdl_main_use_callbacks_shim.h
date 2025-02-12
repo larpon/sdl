@@ -9,13 +9,13 @@
 // for this in `examples/ports/README.md`.
 
 SDL_AppResult SDL_AppInit(void **appstate, int argc, char *argv[]) {
-	g_main_argc = argc;
-	g_main_argv = argv;
+  g_main_argc = argc;
+  g_main_argv = argv;
   #if defined(_VGCBOEHM)
     GC_set_pages_executable(0);
     GC_INIT();
   #endif
-	_vinit(argc, argv);
+  _vinit(argc, argv);
   // Call the user/V exported function
   return v_sdl_app_init(appstate, argc, argv);
 }
