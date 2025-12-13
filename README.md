@@ -48,7 +48,7 @@ git clone https://github.com/vlang/sdl.git ~/.vmodules/sdl
 cd ~/.vmodules/sdl
 git checkout 2.0.12
 ```
-and for Windows:
+and for Windows (the instructions are for `cmd`, not `PowerShell`):
 ```bash
 git clone https://github.com/vlang/sdl.git %HOMEPATH%/.vmodules/sdl
 cd %HOMEPATH%/.vmodules/sdl
@@ -147,9 +147,9 @@ brew reinstall --build-from-source --force sdl2 sdl2_gfx sdl2_image sdl2_mixer s
 
 ### Windows
 It is necessary to install the SDL2 development libraries for Windows.
-To do this, change to the root directory of the sdl module, like
+To do this, change to the root directory of the sdl module, like (in cmd.exe):
 `cd %HOMEPATH%\.vmodules\sdl`
-and run
+and then run:
 `v run windows_install_dependencies.vsh`.
 This will create a directory called "thirdparty" which will be used to download and
 extract the required libraries. To successfully run a provided example or your own projects,
